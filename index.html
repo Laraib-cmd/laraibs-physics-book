@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- DEVELOPER SIGNATURE: Created by Laraib Shakeel, Student of LCWU -->
+    <title>Laraib's Visual Physics Guide</title>
+    
+    <style>
+        body {
+            background-color: #0f141c;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            padding: 30px 15px;
+            margin: 0;
+        }
+        .app-container {
+            background-color: #161f2e;
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 35px 25px;
+            border-radius: 20px;
+            border: 2px solid #00ffcc;
+            box-shadow: 0 10px 30px rgba(0, 255, 204, 0.15);
+            box-sizing: border-box;
+        }
+        .dev-tag {
+            font-size: 11px;
+            color: #8a99ad;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            border-bottom: 1px solid #24334a;
+            padding-bottom: 10px;
+        }
+        .dev-tag strong { color: #00ffcc; }
+        
+        .page-step { display: none; }
+        .active-page { display: block; animation: fadeUp 0.35s ease-out; }
+        
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 { color: #00ffcc; font-size: 24px; margin-bottom: 20px; }
+        p { color: #8a99ad; font-size: 15px; line-height: 1.6; text-align: justify; text-justify: inter-word; margin-bottom: 20px; }
+        
+        .topic-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 25px 0;
+            text-align: left;
+        }
+        .topic-btn {
+            background-color: #0f141c;
+            border: 1px solid #24334a;
+            border-left: 4px solid #00ffcc;
+            padding: 15px 18px;
+            border-radius: 10px;
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.2s;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .topic-btn:hover { background-color: #1e293b; border-color: #00ffcc; }
+        .topic-btn:active { background-color: #24334a; }
+        .arrow-indicator { color: #00ffcc; font-weight: bold; }
+
+        .theater-box {
+            background-color: #0f141c;
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid #24334a;
+            box-sizing: border-box;
+        }
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            background-color: #000000;
+            border: 1px solid #334155;
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .current-topic-title {
+            font-size: 15px;
+            font-weight: bold;
+            color: #ffcc00;
+            margin-bottom: 12px;
+            text-align: left;
+        }
+        .btn-box { margin-top: 30px; }
+        button {
+            background-color: #00ffcc;
+            color: #0f141c;
+            border: none;
+            padding: 14px 35px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 100%;
+            max-width: 320px;
+            box-shadow: 0 4px 15px rgba(0, 255, 204, 0.2);
+        }
+        button:hover { transform: translateY(-1px); box-shadow: 0 6px 20px #00ffcc; }
+
+        @media (max-width: 480px) {
+            body { padding: 15px 5px; }
+            .app-container { padding: 25px 15px; border-radius: 15px; }
+            h2 { font-size: 20px; }
+            p { font-size: 14px; }
+            .topic-btn { font-size: 13.5px; padding: 12px; }
+            .theater-box { padding: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        <div class="dev-tag">
+            Class 11 Physics • Designed by <strong>Laraib Shakeel</strong> • LCWU Student
+        </div>
+
+        <div class="page-step active-page" id="page1">
+            <h2>Chapter 2 Visual Concept Portal</h2>
+            <p>Welcome! This interactive workspace is built exclusively for <strong>BISE Lahore Class 11 Physics (Chapter 2: Force and Motion)</strong>. It maps out textbook definitions, vector math, and linear momentum equations directly into high-definition animations and conceptual graphical videos to reveal the absolute real-world reality of the physics curriculum.</p>
+            <div class="btn-box">
+                <button onclick="changePage(2)">Open Topic Directory</button>
+            </div>
+        </div>
+
+        <div class="page-step" id="page2">
+            <h2>Select a Conceptual Module</h2>
+            <p style="text-align:center; color:#8a99ad; font-size: 14px; margin-top:0;">Choose a specific topic below to watch its real-life graphical illustration:</p>
+            
+            <div class="topic-menu">
+                <div class="topic-btn" onclick="launchVideoTheater('1. Rectangular Components of a Vector', 'https://youtube.com')">
+                    <span>1. Rectangular Components of a Vector</span> <span class="arrow-indicator">➔</span>
+                </div>
+                <div class="topic-btn" onclick="launchVideoTheater('2. Scalar and Vector Products', 'https://youtube.com')">
+                    <span>2. Scalar and Vector Products</span> <span class="arrow-indicator">➔</span>
+                </div>
+                <div class="topic-btn" onclick="launchVideoTheater('3. Equations of Motion Analysis', 'https://youtube.com')">
+                    <span>3. Equations of Motion Analysis</span> <span class="arrow-indicator">➔</span>
+                </div>
+                <div class="topic-btn" onclick="launchVideoTheater('4. Motion Under Gravity (Free Fall Dynamics)', 'https://youtube.com')">
+                    <span>4. Motion Under Gravity</span> <span class="arrow-indicator">➔</span>
+                </div>
+                <div class="topic-btn" onclick="launchVideoTheater('5. Projectile Motion Matrix', 'https://youtube.com')">
+                    <span>5. Projectile Motion Matrix</span> <span class="arrow-indicator">➔</span>
+                </div>
+                <div class="topic-btn" onclick="launchVideoTheater('6. Linear Momentum & Impulse Forces', 'https://youtube.com')">
+                    <span>6. Linear Momentum & Impulse Forces</span> <span class="arrow-indicator">➔</span>
+                </div>
+                <div class="topic-btn" onclick="launchVideoTheater('7. Law of Conservation of Momentum (Interacting Spheres)', 'https://youtube.com')">
+                    <span>7. Law of Conservation of Momentum</span> <span class="arrow-indicator">➔</span>
+                </div>
+            </div>
+            
+            <div class="btn-box" style="margin-top:15px;">
+                <button onclick="changePage(1)" style="background-color:#1e293b; color:#8a99ad;">Back to Briefing</button>
+            </div>
+        </div>
+
+        <div class="page-step" id="page3">
+            <h2>Visual Screening Theatre</h2>
+            
+            <div class="theater-box">
+                <div class="current-topic-title" id="activeScreenTitle">Topic Title</div>
+                <div class="video-wrapper">
+                    <iframe id="videoPlayerFrame" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+            
+            <div class="btn-box">
+                <button onclick="changePage(2)" style="background-color:#1e293b; color:#8a99ad; margin-bottom: 10px;">Back to Directory</button>
+                <button onclick="changePage(1)">Exit Hub</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function changePage(pageNumber) {
+            var pages = document.getElementsByClassName("page-step");
+            for (var i = 0; i < pages.length; i++) {
+                pages[i].classList.remove("active-page");
+            }
+            document.getElementById("page" + pageNumber).classList.add("active-page");
+            
+            if (pageNumber !== 3) {
+                var player = document.getElementById("videoPlayerFrame");
+                if (player) player.src = "";
+            }
+        }
+
+        function launchVideoTheater(topicTitle, videoEmbedUrl) {
+            document.getElementById("activeScreenTitle").innerHTML = "🎯 Active View: " + topicTitle;
+            document.getElementById("videoPlayerFrame").src = videoEmbedUrl;
+            changePage(3);
+        }
+    </script>
+
+</body>
+</html>
